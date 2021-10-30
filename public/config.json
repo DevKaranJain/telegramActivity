@@ -52,7 +52,7 @@
             "timeout": 3000
        },
        "validate": {
-           "url": "https://telegramcustomactivitty.herokuapp.com/journeybuilder/validate",
+           "url": "https://telegramcustomactivitty.herokuapp.com/journeybuilder/validate/",
             "verb": "POST",
             "body": "",
             "format": "json",
