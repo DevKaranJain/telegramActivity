@@ -50,8 +50,8 @@ define([
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
 
-                if (key === 'chat_id') {
-                    $('#chat_id').val(val);
+                if (key === 'accountSid') {
+                    $('#accountSID').val(val);
                 }
 
                 if (key === 'authToken') {
@@ -59,7 +59,7 @@ define([
                 }
 
                 // if (key === 'messagingService') {
-                    // $('#messagingService').val(val);
+                //     $('#messagingService').val(val);
                 // }
 
                 if (key === 'body') {
@@ -90,18 +90,18 @@ define([
 
     function save() {
 
-        var chat_id = $('#chat_id').val();
+        var accountSid = $('#accountSid').val();
         var authToken = $('#authToken').val();
-        //var messagingService = $('#messagingService').val();
+    //    var messagingService = $('#messagingService').val();
         var body = $('#messageBody').val();
        // console.log("in the save option "+ body);
         
         payload['arguments'].execute.inArguments = [{
-            "chat_id": chat_id,
+            "accountSid": accountSid,
             "authToken": authToken,
-            //"messagingService": messagingService,
+    //        "messagingService": messagingService,
             "body": body,
-            "to": "{{Contact.Attribute.telegramActivity.chatid}}" ,//<----This should map to your data extension name and phone number column
+            "to": "{{Contact.Attribute.Custom_SMS.twilioNumber}}" ,//<----This should map to your data extension name and phone number column
            
         }];       
         payload['metaData'].isConfigured = true;
