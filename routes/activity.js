@@ -105,22 +105,22 @@ exports.execute = function (req, res) {
 
 
     var requestBody = req.body.inArguments[0];
-    var uniqueEmail = req.body.keyValue;
+    var uniqueEmail = req.body.keyValue;    
     console.log(uniqueEmail);
-    const accountSid = requestBody.accountSid;
+    const chat_id = requestBody.chat_id;
     const authToken = requestBody.authToken;
-    const to = requestBody.to;
-    const from = requestBody.messagingService;
+//    const to = requestBody.to;
+//    const from = requestBody.messagingService;
     const body = requestBody.body;
     
     //this line is responsible for userName is required  error 
-    const client = require('twilio')(accountSid, authToken);
+    const client = require('telegram')(chat_id, authToken);
        
     client.messages 
           .create({ 
              body: body,
-             from :'+13203473736',
-             to: '+91'+to 
+             from :'2026995123',
+             to: '-526739583' 
            }) 
            .then(message => console.log(message.sid)) 
            .done(); 
