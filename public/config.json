@@ -7,8 +7,8 @@
     "type": "REST",
     "lang": {
        "en-US": {
-           "name": "Telegram Bot Messages",
-           "description": "Send Message On Telegram Via Bot",
+           "name": "Telegram SMS",
+           "description": "Send Telegram SMS with Journey Builder",
            "TwilioMessage":"test"
        }
     },
@@ -22,7 +22,7 @@
                 }               
             ],
             "outArguments": [],
-            "url": "https://https://telegramcustomactivitty.herokuapp.com/journeybuilder/execute/",
+            "url": "https://telegramcustomactivitty.herokuapp.com//journeybuilder/execute/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -52,7 +52,7 @@
             "timeout": 3000
        },
        "validate": {
-           "url": "https://telegramcustomactivitty.herokuapp.com/journeybuilder/validate/",
+           "url": "https://telegramcustomactivitty.herokuapp.com//journeybuilder/validate/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -82,7 +82,7 @@
         "arguments": {
             "execute": {
                 "inArguments": [{
-                        "chat_id": {
+                        "accountSid": {
                             "dataType": "String",
                             "isNullable": false,
                             "direction": "out"   
