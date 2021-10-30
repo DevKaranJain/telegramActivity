@@ -8,8 +8,8 @@
     "lang": {
        "en-US": {
            "name": "Telegram SMS",
-           "description": "Send Telegram SMS with Journey Builder",
-           "TwilioMessage":"test"
+           "description": "Send Telegram SMS with Journey Builder"
+           
        }
     },
     "arguments": {
@@ -22,7 +22,7 @@
                 }               
             ],
             "outArguments": [],
-            "url": "https://telegramcustomactivitty.herokuapp.com//journeybuilder/execute/",
+            "url": "https://telegramcustomactivitty.herokuapp.com/journeybuilder/execute/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -52,7 +52,7 @@
             "timeout": 3000
        },
        "validate": {
-           "url": "https://telegramcustomactivitty.herokuapp.com//journeybuilder/validate/",
+           "url": "https://telegramcustomactivitty.herokuapp.com/journeybuilder/validate/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -97,7 +97,7 @@
                     },                    
                     {
                         "from": {
-                            "dataType": "Phone",
+                            "dataType": "Text",
                             "isNullable": true,
                             "direction": "out"   
                         }
