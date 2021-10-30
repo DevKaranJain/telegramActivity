@@ -82,7 +82,7 @@
         "arguments": {
             "execute": {
                 "inArguments": [{
-                        "accountSid": {
+                        "chat_id": {
                             "dataType": "String",
                             "isNullable": false,
                             "direction": "out"   
