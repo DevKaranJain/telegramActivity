@@ -50,17 +50,17 @@ define([
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
 
-                if (key === 'accountSid') {
-                    $('#accountSID').val(val);
+                if (key === 'chat_id') {
+                    $('#chat_id').val(val);
                 }
 
                 if (key === 'authToken') {
                     $('#authToken').val(val);
                 }
 
-                if (key === 'messagingService') {
-                    $('#messagingService').val(val);
-                }
+                // if (key === 'messagingService') {
+                    // $('#messagingService').val(val);
+                // }
 
                 if (key === 'body') {
                     $('#messageBody').val(val);
@@ -90,16 +90,16 @@ define([
 
     function save() {
 
-        var accountSid = $('#accountSid').val();
+        var chat_id = $('#chat_id').val();
         var authToken = $('#authToken').val();
-        var messagingService = $('#messagingService').val();
+        //var messagingService = $('#messagingService').val();
         var body = $('#messageBody').val();
        // console.log("in the save option "+ body);
         
         payload['arguments'].execute.inArguments = [{
-            "accountSid": accountSid,
+            "chat_id": chat_id,
             "authToken": authToken,
-            "messagingService": messagingService,
+            //"messagingService": messagingService,
             "body": body,
             "to": "{{Contact.Attribute.Custom_SMS.twilioNumber}}" ,//<----This should map to your data extension name and phone number column
            
