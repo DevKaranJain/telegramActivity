@@ -109,10 +109,11 @@ exports.execute = function (req, res) {
     console.log(uniqueEmail);
     const chat_id = requestBody.chat_id;
     const authToken = requestBody.authToken;
-//    const to = requestBody.to;
+    const to = requestBody.to;
 //    const from = requestBody.messagingService;
     const body = requestBody.body;
-    
+    console.log('authtokein is coming'+authToken);
+    console.log('chat_id is coming'+chat_id);
     //this line is responsible for userName is required  error 
     const client = require('telegram')(chat_id, authToken);
        
