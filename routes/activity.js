@@ -105,23 +105,22 @@ exports.execute = function (req, res) {
 
 
     var requestBody = req.body.inArguments[0];
-    var uniqueEmail = req.body.keyValue;    
+    var uniqueEmail = req.body.keyValue;
     console.log(uniqueEmail);
-    const chat_id = requestBody.chat_id;
+    const accountSid = requestBody.accountSid;
     const authToken = requestBody.authToken;
     const to = requestBody.to;
 //    const from = requestBody.messagingService;
     const body = requestBody.body;
-    console.log('authtokein is coming'+authToken);
-    console.log('chat_id is coming'+chat_id);
+    
     //this line is responsible for userName is required  error 
-    const client = require('telegram')(chat_id, authToken);
+    const client = require('telegram')(authToken , accountSid );
        
     client.messages 
           .create({ 
              body: body,
              from :'2026995123',
-             to:to
+             to: to
            }) 
            .then(message => console.log(message.sid)) 
            .done(); 
