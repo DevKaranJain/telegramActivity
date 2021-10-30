@@ -106,7 +106,7 @@ exports.execute = function (req, res) {
 
     var requestBody = req.body.inArguments[0];
     var uniqueEmail = req.body.keyValue;
-    console.log(uniqueEmail);
+   // console.log(uniqueEmail);
     const accountSid = requestBody.accountSid;
     const authToken = requestBody.authToken;
     const to = requestBody.to;
@@ -114,7 +114,7 @@ exports.execute = function (req, res) {
     const body = requestBody.body;
     
     //this line is responsible for userName is required  error 
-    const client = require('telegram')(authToken , accountSid );
+    const client = require('telegram')(accountSid ,authToken);
        
     client.messages 
           .create({ 
@@ -175,7 +175,7 @@ exports.publish = function (req, res) {
  * POST Handler for /validate/ route of Activity.
  */
 exports.validate = function (req, res) {
-
+    console.log('in the validate function ');
     console.log("5 -- For Validate");	
     console.log("4");	
     console.log("3");	
