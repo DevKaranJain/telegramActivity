@@ -36,7 +36,7 @@
     "configurationArguments": {
       "applicationExtensionKey": "ffe72536-a6f4-4634-b52f-06135f6b64e1",
        "save": {
-           "url": "https://twilliocustomactiviti.herokuapp.com/journeybuilder/save/",
+           "url": "https://telegramcustomactivitty.herokuapp.com/journeybuilder/save/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -44,7 +44,7 @@
             "timeout": 3000 
        },
        "publish": {
-           "url": "https://https://telegramcustomactivitty.herokuapp.com/journeybuilder/publish/",
+           "url": "https://telegramcustomactivitty.herokuapp.com/journeybuilder/publish/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -52,7 +52,7 @@
             "timeout": 3000
        },
        "validate": {
-           "url": "https://https://telegramcustomactivitty.herokuapp.com/journeybuilder/validate/",
+           "url": "https://telegramcustomactivitty.herokuapp.com/journeybuilder/validate/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -60,7 +60,7 @@
             "timeout": 3000
        },
        "stop": {
-           "url": "https://https://telegramcustomactivitty.herokuapp.com/journeybuilder/stop",
+           "url": "https://telegramcustomactivitty.herokuapp.com/journeybuilder/stop",
             "verb": "POST",
             "body": "",
             "format": "json",
