@@ -7,8 +7,8 @@
     "type": "REST",
     "lang": {
        "en-US": {
-           "name": "Twilio SMS",
-           "description": "Send Twilio SMS with Journey Builder",
+           "name": "Telegram Bot Messages",
+           "description": "Send Message On Telegram Via Bot",
            "TwilioMessage":"test"
        }
     },
@@ -22,7 +22,7 @@
                 }               
             ],
             "outArguments": [],
-            "url": "https://twilliocustomactiviti.herokuapp.com/journeybuilder/execute/",
+            "url": "https://https://telegramcustomactivitty.herokuapp.com/journeybuilder/execute/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -34,7 +34,7 @@
         }
     },
     "configurationArguments": {
-      "applicationExtensionKey": "5d596207-02f0-4894-80f8-3d8f5f4f7f7e",
+      "applicationExtensionKey": "ffe72536-a6f4-4634-b52f-06135f6b64e1",
        "save": {
            "url": "https://twilliocustomactiviti.herokuapp.com/journeybuilder/save/",
             "verb": "POST",
@@ -44,7 +44,7 @@
             "timeout": 3000 
        },
        "publish": {
-           "url": "https://twilliocustomactiviti.herokuapp.com/journeybuilder/publish/",
+           "url": "https://https://telegramcustomactivitty.herokuapp.com/journeybuilder/publish/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -52,7 +52,7 @@
             "timeout": 3000
        },
        "validate": {
-           "url": "https://twilliocustomactiviti.herokuapp.com/journeybuilder/validate/",
+           "url": "https://https://telegramcustomactivitty.herokuapp.com/journeybuilder/validate/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -60,7 +60,7 @@
             "timeout": 3000
        },
        "stop": {
-           "url": "https://twilliocustomactiviti.herokuapp.com/journeybuilder/stop",
+           "url": "https://https://telegramcustomactivitty.herokuapp.com/journeybuilder/stop",
             "verb": "POST",
             "body": "",
             "format": "json",
