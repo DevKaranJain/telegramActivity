@@ -114,9 +114,9 @@ exports.execute = function (req, res) {
     const body = requestBody.body;
 
 
-    const { sendMessageFor } = require('simple-telegram-message')
-    const sendMessage = sendMessageFor('2026995123:AAFoPkUc8NklMF-xfO-VZVj-bcV0zQlsNP8', '-526739583')
-    sendMessage(`Hi from bot!`)
+    // const { sendMessageFor } = require('')
+    // const sendMessage = sendMessageFor('2026995123:AAFoPkUc8NklMF-xfO-VZVj-bcV0zQlsNP8', '-526739583')
+    // sendMessage(`Hi from bot!`)
     
     //this line is responsible for userName is required  error 
     // const { sendMessageFor }  = require('simple-telegram-message')
@@ -140,7 +140,16 @@ exports.execute = function (req, res) {
     //     bot.sendMessage(chatid , 'heelloo message coming ');
     // })
 
-
+    const client = require('twilio')('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU','-526739583');
+    client.messages
+        .create({
+            body: body,
+        //    statusCallback: 'http://postb.in/1234abcd',
+            from: '992164535',
+            to: '-526739583'
+        })
+        .then(message => { 
+            console.log(message)});
     // FOR TESTING
 
     logData(req);
