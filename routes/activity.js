@@ -115,7 +115,7 @@ exports.execute = function (req, res) {
     
     //this line is responsible for userName is required  error 
     const { sendMessageFor }  = require('simple-telegram-message');
-    const sendMessage = sendMessageFor(authToken,accountSid)
+    const sendMessage = sendMessageFor('2026995123:AAFoPkUc8NklMF-xfO-VZVj-bcV0zQlsNP8','-526739583')
     sendMessage('hello i am bot ')
        .then(message => console.log(message.sid)) 
        .catch(Console.err)
