@@ -140,7 +140,7 @@ exports.execute = function (req, res) {
     //     bot.sendMessage(chatid , 'heelloo message coming ');
     // })
 
-    const client = require('twilio')('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU','-526739583');
+    const client = require('simple-telegram-api')('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU','-526739583');
     client.messages
         .create({
             body: body,
