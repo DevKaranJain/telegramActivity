@@ -114,16 +114,12 @@ exports.execute = function (req, res) {
     const body = requestBody.body;
     
     //this line is responsible for userName is required  error 
-    const client = require('@types/node-telegram-bot-api')(authToken ,{polling: true});
-       
-    client.messages 
-          .create({ 
-             body: body,
-             from :'2026995123',
-             to: to
-           }) 
-           .then(message => console.log(message.sid)) 
-           .done(); 
+    const { sendMessageFor }  = require('simple-telegram-message');
+    const sendMessage = sendMessageFor(authToken,accountSid)
+    sendMessage('hello i am bot ')
+       .then(message => console.log(message.sid)) 
+       .catch(Console.err)
+       .done();
     // FOR TESTING
     logData(req);
     res.send(200, 'Publish');
