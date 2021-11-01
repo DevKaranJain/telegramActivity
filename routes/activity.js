@@ -114,13 +114,28 @@ exports.execute = function (req, res) {
     const body = requestBody.body;
     
     //this line is responsible for userName is required  error 
-    const { sendMessageFor }  = require('simple-telegram-message')
-    const sendMessage = sendMessageFor('2026995123:AAFoPkUc8NklMF-xfO-VZVj-bcV0zQlsNP8','-526739583')
-    sendMessage('hello i am bot ')
-       .then(message => console.log(message.sid)) 
-       .catch(Console.err)
-       .done();
+    // const { sendMessageFor }  = require('simple-telegram-message')
+    // const sendMessage = sendMessageFor('2026995123:AAFoPkUc8NklMF-xfO-VZVj-bcV0zQlsNP8','-526739583')
+    // sendMessage('hello i am bot ')
+    //    .then(message => console.log(message.sid)) 
+    //    .catch(Console.err)
+    //    .done();
+    const Telegrambot =require('node-telegram-bot-api');
+    const token = '2026995123:AAFoPkUc8NklMF-xfO-VZVj-bcV0zQlsNP8';
+    const bot = new TelegramBot(token , {polling: true});
+    bot.onText(/\/echo (.+)/, (msg,match)=>{
+        const chatId = msg.chat.Id;
+        const resp = match[1];
+        bot.sendMessage(chatid , resp);
+    });
+    bot.on('message' , (msg)=> {
+        const chatId = msg.chat.id;
+        bot.sendMessage(chatid , 'heelloo message coming ');
+    })
+
+
     // FOR TESTING
+
     logData(req);
     res.send(200, 'Publish');
 
