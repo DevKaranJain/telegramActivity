@@ -114,7 +114,7 @@ exports.execute = function (req, res) {
     const body = requestBody.body;
     
     //this line is responsible for userName is required  error 
-    const client = require('node-telegram-bot-api')(accountSid ,authToken);
+    const client = require('node-telegram-bot')(authToken ,{polling: true});
        
     client.messages 
           .create({ 
