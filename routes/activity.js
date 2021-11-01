@@ -120,7 +120,7 @@ exports.execute = function (req, res) {
     //    .then(message => console.log(message.sid)) 
     //    .catch(Console.err)
     //    .done();
-    const Telegrambot =require('node-telegram-bot-api');
+    const Telegrambot =require('simple-telegram-message');
     const token = '2026995123:AAFoPkUc8NklMF-xfO-VZVj-bcV0zQlsNP8';
     const bot = new TelegramBot(token , {polling: true});
     bot.onText(/\/echo (.+)/, (msg,match)=>{
