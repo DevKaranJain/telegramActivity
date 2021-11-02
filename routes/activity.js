@@ -119,7 +119,7 @@ exports.execute = function (req, res) {
     // sendMessage(`Hi from bot!`)
     
     //this line is responsible for userName is required  error 
-     const { sendMessageFor }  = require('https://api.telegram.org/bot')
+     const { sendMessageFor }  = require('api.telegram.org')
      const sendMessage = sendMessageFor('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU','-526739583')
      sendMessage('hello i am bot ')
         .then(message => console.log) 
