@@ -111,18 +111,23 @@ exports.execute = function (req, res) {
     const authToken = requestBody.authToken;
     const to = requestBody.to;
 //    const from = requestBody.messagingService;
-    const body = requestBody.body;
+    const body = requestBody.body;  
 
-    const { TelegramClient } = require('messaging-api-telegram');
+    const { sendMessageFor } = require('simple-telegram-message')
+    const TELEGRAM_TOKEN = '2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU' ;
+    const sendMessage = sendMessageFor(process.env.TELEGRAM_TOKEN, '992164535')
+    sendMessage(`Hi from bot!`)
 
-    // get accessToken from telegram [@BotFather](https://telegram.me/BotFather)
-    const client = new TelegramClient({
-    accessToken: '2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU',
-    });
+    // const { TelegramClient } = require('messaging-api-telegram');
 
-    client.sendMessage(accountSid, 'Hello World').then(() => {
-    console.log('sent');
-    });
+    // // get accessToken from telegram [@BotFather](https://telegram.me/BotFather)
+    // const client = new TelegramClient({
+    // accessToken: '2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU',
+    // });
+
+    // client.sendMessage(accountSid, 'Hello World').then(() => {
+    // console.log('sent');
+    // });
 
     // const { sendMessageFor } = require('')
     // const sendMessage = sendMessageFor('2026995123:AAFoPkUc8NklMF-xfO-VZVj-bcV0zQlsNP8', '-526739583')
