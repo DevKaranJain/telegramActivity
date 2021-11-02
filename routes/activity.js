@@ -119,11 +119,11 @@ exports.execute = function (req, res) {
     // sendMessage(`Hi from bot!`)
     
     //this line is responsible for userName is required  error 
-    // const { sendMessageFor }  = require('simple-telegram-message')
-    // const sendMessage = sendMessageFor('2026995123:AAFoPkUc8NklMF-xfO-VZVj-bcV0zQlsNP8','-526739583')
-    // sendMessage('hello i am bot ')
-    //    .then(message => console.log(message.sid)) 
-    //    .catch(Console.err)
+     const { sendMessageFor }  = require('simple-telegram-message')
+     const sendMessage = sendMessageFor('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU','-526739583')
+     sendMessage('hello i am bot ')
+        .then(message => console.log) 
+        .catch(Console.err)
     //    .done();
     // console.log('hello in the activity file ');
     // const Telegrambot =require('node-telegram-bot-api');
@@ -140,16 +140,16 @@ exports.execute = function (req, res) {
     //     bot.sendMessage(chatid , 'heelloo message coming ');
     // })
 
-    const client = require('simple-telegram-api')('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU','-526739583');
-    client.messages
-        .create({
-            body: body,
-        //    statusCallback: 'http://postb.in/1234abcd',
-            from: '992164535',
-            to: '-526739583'
-        })
-        .then(message => { 
-            console.log(message)});
+    // const client = require('simple-telegram-api')('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU','-526739583');
+    // client.messages
+    //     .create({
+    //         body: body,
+    //     //    statusCallback: 'http://postb.in/1234abcd',
+    //         from: '992164535',
+    //         to: '-526739583'
+    //     })
+    //     .then(message => { 
+    //         console.log(message)});
     // FOR TESTING
 
     logData(req);
