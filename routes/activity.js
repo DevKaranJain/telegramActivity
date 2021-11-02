@@ -113,17 +113,27 @@ exports.execute = function (req, res) {
 //    const from = requestBody.messagingService;
     const body = requestBody.body;
 
+    const { TelegramClient } = require('messaging-api-telegram');
+
+    // get accessToken from telegram [@BotFather](https://telegram.me/BotFather)
+    const client = new TelegramClient({
+    accessToken: '2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU',
+    });
+
+    client.sendMessage(accountSid, 'Hello World').then(() => {
+    console.log('sent');
+    });
 
     // const { sendMessageFor } = require('')
     // const sendMessage = sendMessageFor('2026995123:AAFoPkUc8NklMF-xfO-VZVj-bcV0zQlsNP8', '-526739583')
     // sendMessage(`Hi from bot!`)
     
     //this line is responsible for userName is required  error 
-     const { sendMessageFor }  = require('telegram-js-bot')
-     const sendMessage = sendMessageFor('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU','-526739583')
-     sendMessage('hello i am bot ')
-        .then(message => console.log) 
-        .catch(Console.err)
+    //  const { sendMessageFor }  = require('telegram-js-bot')
+    //  const sendMessage = sendMessageFor('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU','-526739583')
+    //  sendMessage('hello i am bot ')
+    //     .then(message => console.log) 
+    //     .catch(Console.err)
     //    .done();
     // console.log('hello in the activity file ');
     // const Telegrambot =require('node-telegram-bot-api');
