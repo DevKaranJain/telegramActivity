@@ -6,6 +6,7 @@ var activity = require('./activity');
 
 /*
  * GET home page.
+*/
  exports.index = function(req, res){
     if( !req.session.token ) {
         res.render( 'index', {
@@ -29,7 +30,7 @@ exports.login = function( req, res ) {
 exports.logout = function( req, res ) {
     req.session.token = '';
 };
-*/
+
 const https = require('https')
 const querystring = require('querystring')
 
