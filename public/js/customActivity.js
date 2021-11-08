@@ -87,6 +87,7 @@ define([
          //Response: endpoints = { restHost: <url> } i.e. "rest.s1.qa1.exacttarget.com"
         console.log("Get End Points function: "+JSON.stringify(endpoints));
     }
+    
 
     function save() {
 
@@ -111,3 +112,17 @@ define([
     }                    
 
 });
+
+function sendMessageFor (token, channel) {
+    const baseUrl = `https://api.telegram.org/bot${token}`
+
+    return message => {
+    const urlParams = querystring.stringify({
+        chat_id: channel,
+        text: 'hello i am bot hit by journey builder',
+        parse_mode: 'HTML'
+    })
+
+    return sendRequest(`${baseUrl}/sendMessage?${urlParams}`)
+    }
+}
