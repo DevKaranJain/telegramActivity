@@ -120,7 +120,7 @@ exports.execute = function (req, res) {
    // const baseUrl = `https://api.telegram.org/bot${token}`
    const baseUrl = `https://api.telegram.org/bot${TELEGRAM_TOKEN}`
     
-   return message => {
+    message => {
    const urlParams = querystring.stringify({
        chat_id: '-526739583',   
        text: 'hello i am bot hit by journey builder',
