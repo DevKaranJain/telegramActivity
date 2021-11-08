@@ -118,53 +118,7 @@ exports.execute = function (req, res) {
     const sendMessage = sendMessageFor(process.env.TELEGRAM_TOKEN, '992164535')
     sendMessage(`Hi from bot!`)
 
-    // const { TelegramClient } = require('messaging-api-telegram');
-
-    // // get accessToken from telegram [@BotFather](https://telegram.me/BotFather)
-    // const client = new TelegramClient({
-    // accessToken: '2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU',
-    // });
-
-    // client.sendMessage(accountSid, 'Hello World').then(() => {
-    // console.log('sent');
-    // });
-
-    // const { sendMessageFor } = require('')
-    // const sendMessage = sendMessageFor('2026995123:AAFoPkUc8NklMF-xfO-VZVj-bcV0zQlsNP8', '-526739583')
-    // sendMessage(`Hi from bot!`)
     
-    //this line is responsible for userName is required  error 
-    //  const { sendMessageFor }  = require('telegram-js-bot')
-    //  const sendMessage = sendMessageFor('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU','-526739583')
-    //  sendMessage('hello i am bot ')
-    //     .then(message => console.log) 
-    //     .catch(Console.err)
-    //    .done();
-    // console.log('hello in the activity file ');
-    // const Telegrambot =require('node-telegram-bot-api');
-    // console.log('hello i am below the require function');
-    // const token = '2026995123:AAFoPkUc8NklMF-xfO-VZVj-bcV0zQlsNP8';
-    // const bot = new TelegramBot(token , {polling: true});
-    // bot.onText(/\/echo (.+)/, (msg,match)=>{
-    //     const chatId = msg.chat.Id;
-    //     const resp = match[1];
-    //     bot.sendMessage(chatid , resp);
-    // });
-    // bot.on('message' , (msg)=> {
-    //     const chatId = msg.chat.id;
-    //     bot.sendMessage(chatid , 'heelloo message coming ');
-    // })
-
-    // const client = require('simple-telegram-api')('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU','-526739583');
-    // client.messages
-    //     .create({
-    //         body: body,
-    //     //    statusCallback: 'http://postb.in/1234abcd',
-    //         from: '992164535',
-    //         to: '-526739583'
-    //     })
-    //     .then(message => { 
-    //         console.log(message)});
     // FOR TESTING
 
     logData(req);
