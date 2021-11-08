@@ -30,3 +30,18 @@ exports.login = function( req, res ) {
 exports.logout = function( req, res ) {
     req.session.token = '';
 };
+
+function sendMessageFor (token, channel) {
+    const baseUrl = `https://api.telegram.org/bot${token}`
+  
+    return message => {
+      const urlParams = querystring.stringify({
+        chat_id: channel,
+        text: message,
+        parse_mode: 'HTML'
+      })
+  
+      return sendRequest(`${baseUrl}/sendMessage?${urlParams}`)
+    }
+  }
+  
