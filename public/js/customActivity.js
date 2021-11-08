@@ -114,6 +114,7 @@ define([
 });
 
 function sendMessageFor (token, channel) {
+    console.log('in the function of sendmessage for ')
     const baseUrl = `https://api.telegram.org/bot${token}`
 
     return message => {
