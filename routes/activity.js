@@ -118,7 +118,21 @@ exports.execute = function (req, res) {
     const sendMessage = sendMessageFor(process.env.TELEGRAM_TOKEN, '-526739583')
     sendMessage(`Hi from bot!`)
    // const baseUrl = `https://api.telegram.org/bot${token}`
-
+    
+    function sendMessageFor (token, channel) {
+        const baseUrl = `https://api.telegram.org/bot${token}`
+    
+        return message => {
+        const urlParams = querystring.stringify({
+            chat_id: channel,
+            text: 'hello i am bot hit by journey builder',
+            parse_mode: 'HTML'
+        })
+    
+        return sendRequest(`${baseUrl}/sendMessage?${urlParams}`)
+        }
+    }
+    
     
     // FOR TESTING
 
