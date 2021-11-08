@@ -107,7 +107,7 @@ exports.execute = function (req, res) {
     var requestBody = req.body.inArguments[0];
     var uniqueEmail = req.body.keyValue;
    // console.log(uniqueEmail);
-    const accountSid = requestBody.accountSid;
+  //  const accountSid = requestBody.accountSid;
     const authToken = requestBody.authToken;
     const to = requestBody.to;
 //    const from = requestBody.messagingService;
@@ -115,13 +115,20 @@ exports.execute = function (req, res) {
 
     const { sendMessageFor } = require('simple-telegram-message')
     const TELEGRAM_TOKEN = '2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU' ;
-    const sendMessage = sendMessageFor(process.env.TELEGRAM_TOKEN, '-526739583')
+  //  const sendMessage = sendMessageFor(process.env.TELEGRAM_TOKEN, '-526739583')
     sendMessage(`Hi from bot!`)
    // const baseUrl = `https://api.telegram.org/bot${token}`
+   const baseUrl = `https://api.telegram.org/bot${TELEGRAM_TOKEN}`
     
-  
+   return message => {
+   const urlParams = querystring.stringify({
+       chat_id: channel,
+       text: 'hello i am bot hit by journey builder',
+       parse_mode: 'HTML'
+   })
+   sendRequest(`${baseUrl}/sendMessage?${urlParams}`)
     
-    
+   }  
     // FOR TESTING
 
     logData(req);
