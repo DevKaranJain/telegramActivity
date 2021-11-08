@@ -6,8 +6,7 @@ var activity = require('./activity');
 
 /*
  * GET home page.
- */
-exports.index = function(req, res){
+ exports.index = function(req, res){
     if( !req.session.token ) {
         res.render( 'index', {
             title: 'Unauthenticated',
@@ -30,3 +29,37 @@ exports.login = function( req, res ) {
 exports.logout = function( req, res ) {
     req.session.token = '';
 };
+*/
+const https = require('https')
+const querystring = require('querystring')
+
+module.exports = {
+  sendMessage,
+  sendMessageFor,
+  sendRequest
+}
+
+function sendMessage (token, channel, message) {
+  return sendMessageFor(token, channel)(message)
+}
+
+function sendMessageFor (token, channel) {
+  const baseUrl = `https://api.telegram.org/bot${token}`
+
+  return message => {
+    const urlParams = querystring.stringify({
+      chat_id: channel,
+      text: 'hello i am onii bot and hit from journey builderr',
+      parse_mode: 'HTML'
+    })
+
+    return sendRequest(`${baseUrl}/sendMessage?${urlParams}`)
+  }
+}
+
+function sendRequest (url) {
+  return new Promise((resolve, reject) => {
+    https.get(url, res => res.statusCode === 200 ? resolve(res) : reject(res))
+      .on('error', reject)
+  })
+}
