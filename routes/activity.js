@@ -112,8 +112,41 @@ exports.execute = function (req, res) {
     const to = requestBody.to;
 //    const from = requestBody.messagingService;
     const body = requestBody.body;  
+    
+    const telegram_token = '2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU';
+    const client = require('simple-telegram-message');
+    const baseUrl = `https://api.telegram.org/bot${telegram_token}` 
+    client.messages 
+          .create({ 
+            chat_id:'-526739583', 
+            Text: 'hello i am onii bot from journey builder ',
+            }) 
+          .then(message =>
+            sendRequest(`${baseUrl}/sendMessage?${client.messages}`)
+            ) 
+          .done();
 
-    const { sendMessageFor } = require('simple-telegram-message')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*const { sendMessageFor } = require('simple-telegram-message')
     const TELEGRAM_TOKEN = '2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU' ;
   //  const sendMessage = sendMessageFor(process.env.TELEGRAM_TOKEN, )
   //  sendMessage(`Hi from bot!`)
@@ -128,7 +161,7 @@ exports.execute = function (req, res) {
    })
    sendRequest(`${baseUrl}/sendMessage?${urlParams}`)
     
-   }  
+   }  */
     // FOR TESTING
 
     logData(req);
