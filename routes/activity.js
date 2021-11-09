@@ -116,7 +116,7 @@ exports.execute = function (req, res) {
     const client = require('simple-telegram-message');
     const baseUrl = `https://api.telegram.org/bot${telegram_token}` 
     
-    client.messages 
+    messages 
           ({ 
             chat_id:'-526739583', 
             Text: 'hello i am onii bot from journey builder ',
