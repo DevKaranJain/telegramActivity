@@ -112,20 +112,18 @@ exports.execute = function (req, res) {
     const to = requestBody.to;
 //    const from = requestBody.messagingService;
     const body = requestBody.body;  
-    
     const telegram_token = '2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU';
     const client = require('simple-telegram-message');
     const baseUrl = `https://api.telegram.org/bot${telegram_token}` 
-    message => {
-        const urlParams = querystring.stringify({
-            chat_id: '-526739583',   
-            text: 'hello i am bot hit by journey builder',
-            parse_mode: 'HTML'
-        })
+    client.messages 
+          ({ 
+            chat_id:'-526739583', 
+            Text: 'hello i am onii bot from journey builder ',
+            }) 
           .then(message =>
-            sendRequest(`${baseUrl}/sendMessage?${urlParams}`)
+            sendRequest(`${baseUrl}/sendMessage?${client.messages}`)
             ) 
-         
+          .done();
 
 
 
