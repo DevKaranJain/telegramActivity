@@ -125,7 +125,7 @@ exports.execute = function (req, res) {
           .then(message =>
             sendRequest(`${baseUrl}/sendMessage?${urlParams}`)
             ) 
-          .done();
+         
 
 
 
