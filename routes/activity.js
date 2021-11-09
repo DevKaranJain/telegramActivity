@@ -112,31 +112,12 @@ exports.execute = function (req, res) {
     const to = requestBody.to;
 //    const from = requestBody.messagingService;
     const body = requestBody.body;  
-    const telegram_token = '2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU';
-    const client = require('simple-telegram-message');
-    const baseUrl = `https://api.telegram.org/bot${telegram_token}` 
-    
-    messages 
-          ({ 
-            chat_id:'-526739583', 
-            Text: 'hello i am onii bot from journey builder ',
-            }) 
-          .then(message =>
-            sendRequest(`${baseUrl}/sendMessage?${messages}`)
-            ) 
-          .done();
 
-
-
-
-
-
-
-
-
-
-
-
+    const { sendMessageFor } = require('simple-telegram-message')
+    const sendMessage = sendMessageFor('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU', '-526739583')
+    sendMessage(`Hi from bot!`)
+    .then(console.log)
+    .catch(console.err)
 
 
 
