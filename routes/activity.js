@@ -108,13 +108,39 @@ exports.execute = function (req, res) {
     var uniqueEmail = req.body.keyValue;
     const authToken = requestBody.authToken;
     const to = requestBody.to;
+
     const body = requestBody.body;  
     console.log(to);
     const { sendMessageFor } = require('simple-telegram-message')
-    const sendMessage = sendMessageFor(authToken,to)
+    const sendMessage = sendMessageFor('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU',to)
     sendMessage(`Hi from bot! and i am hit from journey builder `)
     .then(console.log)
     .catch(console.err)
+
+
+
+
+
+
+
+
+
+    /*const { sendMessageFor } = require('simple-telegram-message')
+    const TELEGRAM_TOKEN = '2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU' ;
+  //  const sendMessage = sendMessageFor(process.env.TELEGRAM_TOKEN, )
+  //  sendMessage(`Hi from bot!`)
+   // const baseUrl = `https://api.telegram.org/bot${token}`
+   const baseUrl = `https://api.telegram.org/bot${TELEGRAM_TOKEN}`
+    
+    message => {
+   const urlParams = querystring.stringify({
+       chat_id: '-526739583',   
+       text: 'hello i am bot hit by journey builder',
+       parse_mode: 'HTML'
+   })
+   sendRequest(`${baseUrl}/sendMessage?${urlParams}`)
+    
+   }  */
     // FOR TESTING
 
     logData(req);
