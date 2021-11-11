@@ -114,8 +114,7 @@ exports.execute = function (req, res) {
     const { sendMessageFor } = require('simple-telegram-message')
     const {getupdatesfor } = require('simple-telegram-message')
     const sendMessage = sendMessageFor('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU',to)
-    const getupdate = getupdatesfor('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU')
-    console.log('here we calling the get update api ---- ',getupdate)
+    
     sendMessage(`Hi from bot! and i am hit from journey builder `)
     .then(console.log)
     .catch(console.err)
