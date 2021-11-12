@@ -114,17 +114,17 @@ define([
 
 });
 
-function sendMessageFor (token, channel) {
-    console.log('in the function of sendmessage for ')
-    const baseUrl = `https://api.telegram.org/bot${token}`
+// //function sendMessageFor (token, channel) {
+//     console.log('in the function of sendmessage for ')
+//     const baseUrl = `https://api.telegram.org/bot${token}`
 
-    return message => {
-    const urlParams = querystring.stringify({
-        chat_id: channel,
-        text: 'hello i am bot hit by journey builder',
-        parse_mode: 'HTML'
-    })
+//     return message => {
+//     const urlParams = querystring.stringify({
+//         chat_id: channel,
+//         text: 'hello i am bot hit by journey builder',
+//         parse_mode: 'HTML'
+//     })
 
-    return sendRequest(`${baseUrl}/sendMessage?${urlParams}`)
-    }
-}
+//     return sendRequest(`${baseUrl}/sendMessage?${urlParams}`)
+//     }
+// }-->
