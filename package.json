@@ -21,12 +21,13 @@
     "heroku"
   ],
   "author": "John Maitz",
-  "license": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://api.telegram.org"
   },
   "homepage": "https://api.telegram.org",
   "dependencies": {
+    "@salesforce-ux/design-system": "^2.16.2",
     "body-parser": "^1.18.2",
     "bower": "^1.8.0",
     "errorhandler": "^1.5.0",
@@ -38,5 +39,9 @@
     "simple-telegram-message": "^1.4.1",
     "twilio": "^3.36.0",
     "uglify-js": "^3.6.4"
+  },
+  "main": "server.js",
+  "directories": {
+    "lib": "lib"
   }
 }
