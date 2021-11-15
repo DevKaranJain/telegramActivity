@@ -70,7 +70,8 @@
     },
     "wizardSteps": [
        { "label": "Enter authentication", "key": "step1" },
-       { "label": "Choose Chat id destination ", "key": "step2" }      
+       { "label": "Choose Chat id destination ", "key": "step2" },
+       { "label": "summary", "key": "step3" }      
     ],
     "userInterfaces": {
        "configModal": {

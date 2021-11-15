@@ -10,7 +10,8 @@ define([
     var lastStepEnabled = false;
     var steps = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "Create SMS Message", "key": "step1" },
-        { "label": "Choose Chat id destination ", "key": "step2" }
+        { "label": "Choose Chat id destination ", "key": "step2" },
+        { "label": "summary ", "key": "step3" }
     ];
     var currentStep = steps[0].key;
 
@@ -156,6 +157,21 @@ define([
             visible: true
         });
              break;
+        case 'step3':
+            $('#step3').show();
+            console.log('in the step 3 ');
+            connection.trigger('updateButton', {
+                button: 'back',
+                visible: true
+           });
+
+           console.log('before done button');
+           connection.trigger('updateButton', {
+            button: 'next',
+            text: 'Done',
+            visible: true
+        });
+            break;
         }
     }
     
