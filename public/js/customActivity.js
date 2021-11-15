@@ -147,34 +147,37 @@ define([
                 break;
             case 'step2': 
             $('#step2').show();
-        //     connection.trigger('updateButton', {
-        //         button: 'back',
-        //         visible: true
-        //    });
+             connection.trigger('updateButton', {
+                 button: 'back',
+                 visible: true
+            });
             console.log('in the step 2 ');
 
             connection.trigger('updateButton', {
             button: 'next',
-            text: 'next',
+            text: 'done',
             visible: true
         });
              break;
         case 'step3':
             $('#step3').show();
-            console.log('in the step 3 ');
-            connection.trigger('updateButton', {
-                button: 'back',
-                visible: true
-           });
 
-           console.log('before done button');
-           connection.trigger('updateButton', {
-            button: 'Done',
-            text: 'Done',
-            visible: true
-        });
+             console.log('in the step 3 ');
+        //     connection.trigger('updateButton', {
+        //         button: 'back',
+        //         visible: true
+        //    });
+
+        //    console.log('before done button');
+        //    connection.trigger('updateButton', {
+        //     button: 'next',
+        //     text: 'Done',
+        //     visible: true
+       // });
             break;
+            
         }
+
     }
     
 
