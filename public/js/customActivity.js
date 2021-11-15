@@ -143,11 +143,12 @@ define([
                     //enabled: Boolean(getMessage())
                 });
                 break;
-            case 'step2': $('#step2').show();
-            connection.trigger('updateButton', {
-                button: 'back',
-                visible: true
-           });
+            case 'step2': 
+            $('#step2').show();
+        //     connection.trigger('updateButton', {
+        //         button: 'back',
+        //         visible: true
+        //    });
            connection.trigger('updateButton', {
             button: 'next',
             text: 'Done',
