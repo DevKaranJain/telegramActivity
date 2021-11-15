@@ -77,7 +77,6 @@ define([
         });
 
     }
-
     function onGetTokens (tokens) {
         // Response: tokens = { token: <legacy token>, fuel2token: <fuel api token> }
         console.log("Tokens function: "+JSON.stringify(tokens));
@@ -87,6 +86,34 @@ define([
     function onGetEndpoints (endpoints) {
          //Response: endpoints = { restHost: <url> } i.e. "rest.s1.qa1.exacttarget.com"
         console.log("Get End Points function: "+JSON.stringify(endpoints));
+    }
+    
+    function onclickNext(){
+        var errorSlds = '<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert"><span class="slds-assistive-text">error</span><span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed"><svg class="slds-icon slds-icon_x-small" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use></svg></span><h2>Please fill Account SID and Auth Token </h2> <div class="slds-notify__close"><button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" title="Close"><svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use></svg><span class="slds-assistive-text">Close</span></button></div></div>';
+        if((currentStep.key)=== 'step1'){
+            var authToken = $('#authToken').val();
+
+            if(!authToken )
+              { 
+                document.getElementById("error").innerHTML= errorSlds;
+                connection.trigger('prevStep');
+              }
+              else
+              {
+                document.getElementById("error").innerHTML= "";
+                connection.trigger('nextStep');
+              }
+        }
+        else if(currentStep.key === 'step2'){
+            var recipient = $("#recipient").val();
+            connection.trigger('nextStep');
+        } 
+        else if (
+            (currentStep.key === 'step3' && steps[3].active === false))
+            {
+            save();
+        } 
+              
     }
     
 
@@ -110,7 +137,8 @@ define([
         console.log("Payload on SAVE function: "+JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
 
-    }                    
+    }  
+                    
 
 });
 
