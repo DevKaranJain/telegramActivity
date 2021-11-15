@@ -72,7 +72,7 @@ define([
 
         connection.trigger('updateButton', {
             button: 'next',
-            text: 'done',
+            text: 'next',
             visible: true
         });
 
