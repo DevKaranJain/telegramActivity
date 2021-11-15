@@ -125,7 +125,7 @@ define([
         showStep(step);
         connection.trigger('ready');
     }
-    function showStep(){
+    function showStep(step, stepIndex){
         if (stepIndex && !step) {
             step = steps[stepIndex-1];
         }
