@@ -11,7 +11,7 @@ define([
     var steps = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "Create SMS Message", "key": "step1" },
         { "label": "Choose Chat id destination ", "key": "step2" },
-        { "label": "summary ", "key": "step3" }
+        { "label": "Summary ", "key": "step3" }
     ];
     var currentStep = steps[0].key;
 
@@ -21,7 +21,7 @@ define([
     connection.on('requestedTokens', onGetTokens);
     connection.on('requestedEndpoints', onGetEndpoints);
 
-    connection.on('clickedNext', onClickedNext);
+    connection.on('clickedNext', save);
     connection.on('clickedBack', onClickedBack);
     connection.on('gotoStep', onGotoStep);
 
@@ -54,10 +54,12 @@ define([
 
                 if (key === 'accountSid') {
                     $('#accountSID').val(val);
+                    console.log('in the accountsid if ');
                 }
 
                 if (key === 'authToken') {
                     $('#authToken').val(val);
+                    console.log('in the auth token  ');
                 }
 
                 // if (key === 'messagingService') {
@@ -66,6 +68,7 @@ define([
 
                 if (key === 'body') {
                     $('#messageBody').val(val);
+                    console.log('in the message body ');
                 }                                                               
 
             })
@@ -73,11 +76,12 @@ define([
 
         connection.trigger('updateButton', {
             button: 'next',
-            text: 'next',
+            text: 'done',
             visible: true
         });
 
     }
+
     function onGetTokens (tokens) {
         // Response: tokens = { token: <legacy token>, fuel2token: <fuel api token> }
         console.log("Tokens function: "+JSON.stringify(tokens));
@@ -89,56 +93,43 @@ define([
         console.log("Get End Points function: "+JSON.stringify(endpoints));
     }
     
-    function onClickedNext(){
-        console.log('in the onclick function ');
-    //    var errorSlds = '<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert"><span class="slds-assistive-text">error</span><span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed"><svg class="slds-icon slds-icon_x-small" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use></svg></span><h2>Please fill Account SID and Auth Token </h2> <div class="slds-notify__close"><button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" title="Close"><svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use></svg><span class="slds-assistive-text">Close</span></button></div></div>';
-      /*  if((currentStep.key)=== 'step1'){
-            var authToken = $('#authToken').val();
-
-            if(authToken != null)
-              { 
-                console.log('in the auth token if ');
-                document.getElementById("error").innerHTML= errorSlds;
-                connection.trigger('prevStep');
-              }
-              else
-              {
-                document.getElementById("error").innerHTML= "";
-                
-              }
-        }*/
-        //else if(currentStep.key === 'step2'){
-        //    var recipient = $("#recipient").val();
-        
+            function onClickedNext(){
+        if((currentStep.key)=='step1')
+        {
+            console.log('in the step 1 if ');
             connection.trigger('nextStep');
-            connection.trigger('updateButton', {
-                button: 'next',
-                text: 'next',
-                visible: true
-            });
-        //} 
-        //else if ((currentStep.key === 'step3' && steps[3].active === false))
-        //    {
+
+        }else if (currentStep.key == 'step2'){
+            connection.trigger('ready');
+            connection.trigger('nextstep');
+
+        } else if (currentStep.key == 'step3' && steps[3].active == false ){
             save();
-        //} 
-              
-    }
-    function onClickedBack () {
-        connection.trigger('prevStep');
+        } else {
+            connection.trigger(nextst)
+        }
     }
 
-    function onGotoStep (step) {
+  
+    function onClickedBack (){
+        connection.trigger('prevStep');
+
+    }                   
+
+    function onGotoStep(step){
         showStep(step);
         connection.trigger('ready');
+
     }
-    function showStep(step, stepIndex){
+
+    function showStep(step, stepIndex) {
         if (stepIndex && !step) {
             step = steps[stepIndex-1];
         }
-        currentStep = step;
-        console.log('the step is ', step);
-        $('.step').hide();
 
+        currentStep = step;
+        $('.step').hide();
+        
         switch(currentStep.key) {
             case 'step1':
                 $('#step1').show();
@@ -150,64 +141,54 @@ define([
                     //enabled: Boolean(getMessage())
                 });
                 break;
-            case 'step2': 
-            $('#step2').show();
-             connection.trigger('updateButton', {
-                 button: 'back',
-                 visible: true
-            });
-            console.log('in the step 2 ');
+                case 'step2':
+                    $('#step2').show();
+                    console.log("---------------------------------------------------------------------------------------------------------------->This is step 2");
+                  /*  connection.trigger('updateButton', {
+                        button: 'back',
+                        visible: true
+                    });*/
+                   connection.trigger('updateButton', {
+                        button: 'next',
+                        text: 'next',
+                        visible: true
+                    });
+                    break;
+                    case 'step3':
+                $('#step3').show();
+                console.log("---------------------------------------------------------------------------------------------------------------->This is step 3");
+    }                   connection.trigger('updateButton', {
+                     button: 'back',
+                     visible: true
+                });
+                connection.trigger('updateButton', {
+                    button: 'next',
+                    text: 'Done',
+                    visible: true
+                });
+                break;
+            }
+            function save() {
 
-            connection.trigger('updateButton', {
-            button: 'next',
-            text: 'done',
-            visible: true
-        });
-             break;
-        case 'step3':
-            $('#step3').show();
-
-             console.log('in the step 3 ');
-        //     connection.trigger('updateButton', {
-        //         button: 'back',
-        //         visible: true
-        //    });
-
-        //    console.log('before done button');
-        //    connection.trigger('updateButton', {
-        //     button: 'next',
-        //     text: 'Done',
-        //     visible: true
-       // });
-            break;
-            
-        }
-
-    }
-    
-
-    function save() {
-
-        var accountSid = $('#accountSid').val();
-        var authToken = $('#authToken').val();
-    //    var messagingService = $('#messagingService').val();
-        var body = $('#messageBody').val();
-       // console.log("in the save option "+ body);
+                var accountSid = $('#accountSid').val();
+                var authToken = $('#authToken').val();
+            //    var messagingService = $('#messagingService').val();
+                var body = $('#messageBody').val();
+               // console.log("in the save option "+ body);
+                
+                payload['arguments'].execute.inArguments = [{
+                    "accountSid": accountSid,
+                    "authToken": authToken,
+            //        "messagingService": messagingService,
+                    "body": body,
+                    "to": "{{Contact.Attribute.telegramActivity.chatid}}" ,//<----This should map to your data extension name and phone number column
+                   
+                }];       
+                payload['metaData'].isConfigured = true;
+                console.log("Payload on SAVE function: "+JSON.stringify(payload));
+                connection.trigger('updateActivity', payload);
         
-        payload['arguments'].execute.inArguments = [{
-            "accountSid": accountSid,
-            "authToken": authToken,
-    //        "messagingService": messagingService,
-            "body": body,
-            "to": "{{Contact.Attribute.telegramActivity.chatid}}" ,//<----This should map to your data extension name and phone number column
-           
-        }];       
-        payload['metaData'].isConfigured = true;
-        console.log("Payload on SAVE function: "+JSON.stringify(payload));
-        connection.trigger('updateActivity', payload);
-
-    }  
-                    
+            } 
 
 });
 
