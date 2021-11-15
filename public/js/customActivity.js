@@ -73,7 +73,7 @@ define([
 
             })
         });
-
+        console.log('hello');
         connection.trigger('updateButton', {
             button: 'next',
             text: 'done',
