@@ -20,7 +20,7 @@ define([
     connection.on('requestedTokens', onGetTokens);
     connection.on('requestedEndpoints', onGetEndpoints);
 
-    connection.on('clickedNext', save);
+    connection.on('clickedNext', onClickedNext);
     connection.on('clickedBack', onClickedBack);
     connection.on('gotoStep', onGotoStep);
 
@@ -88,14 +88,15 @@ define([
         console.log("Get End Points function: "+JSON.stringify(endpoints));
     }
     
-    function onclickNext(){
+    function onClickedNext(){
         console.log('in the onclick function ');
         var errorSlds = '<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert"><span class="slds-assistive-text">error</span><span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed"><svg class="slds-icon slds-icon_x-small" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use></svg></span><h2>Please fill Account SID and Auth Token </h2> <div class="slds-notify__close"><button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" title="Close"><svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use></svg><span class="slds-assistive-text">Close</span></button></div></div>';
         if((currentStep.key)=== 'step1'){
             var authToken = $('#authToken').val();
 
-            if(!authToken )
+            if(authToken != null)
               { 
+                console.log('in the auth token if ');
                 document.getElementById("error").innerHTML= errorSlds;
                 connection.trigger('prevStep');
               }
@@ -109,12 +110,51 @@ define([
             var recipient = $("#recipient").val();
             connection.trigger('nextStep');
         } 
-        else if (
-            (currentStep.key === 'step3' && steps[3].active === false))
+        else if ((currentStep.key === 'step3' && steps[3].active === false))
             {
             save();
         } 
               
+    }
+    function onClickedBack () {
+        connection.trigger('prevStep');
+    }
+
+    function onGotoStep (step) {
+        showStep(step);
+        connection.trigger('ready');
+    }
+    function showStep(){
+        if (stepIndex && !step) {
+            step = steps[stepIndex-1];
+        }
+        currentStep = step;
+
+        $('.step').hide();
+
+        switch(currentStep.key) {
+            case 'step1':
+                $('#step1').show();
+                console.log("---------------------------------------------------------------------------------------------------------------->This is step 1");
+                 connection.trigger('updateButton', {
+                  button: 'next',
+                     text: 'next',
+                  visible: true
+                    //enabled: Boolean(getMessage())
+                });
+                break;
+            case 'step2': $('#step2').show();
+            connection.trigger('updateButton', {
+                button: 'back',
+                visible: true
+           });
+           connection.trigger('updateButton', {
+            button: 'next',
+            text: 'Done',
+            visible: true
+        });
+        break;
+        }
     }
     
 
