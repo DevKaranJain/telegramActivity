@@ -151,6 +151,7 @@ define([
         //         visible: true
         //    });
             console.log('in the step 2 ');
+
             connection.trigger('updateButton', {
             button: 'next',
             text: 'Done',
@@ -167,7 +168,7 @@ define([
 
            console.log('before done button');
            connection.trigger('updateButton', {
-            button: 'next',
+            button: 'Done',
             text: 'Done',
             visible: true
         });
