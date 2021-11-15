@@ -111,6 +111,11 @@ define([
         //    var recipient = $("#recipient").val();
         
             connection.trigger('nextStep');
+            connection.trigger('updateButton', {
+                button: 'next',
+                text: 'next',
+                visible: true
+            });
         //} 
         //else if ((currentStep.key === 'step3' && steps[3].active === false))
         //    {
@@ -131,7 +136,7 @@ define([
             step = steps[stepIndex-1];
         }
         currentStep = step;
-
+        console.log('the step is ', step);
         $('.step').hide();
 
         switch(currentStep.key) {
