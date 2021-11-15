@@ -106,7 +106,7 @@ define([
         } else if (currentStep.key == 'step3' && steps[3].active == false ){
             save();
         } else {
-            connection.trigger(nextst)
+            connection.trigger('nextstep');
         }
     }
 
