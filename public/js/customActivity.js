@@ -149,12 +149,13 @@ define([
         //         button: 'back',
         //         visible: true
         //    });
-           connection.trigger('updateButton', {
+            console.log('in the step 2 ');
+            connection.trigger('updateButton', {
             button: 'next',
             text: 'Done',
             visible: true
         });
-        break;
+             break;
         }
     }
     
