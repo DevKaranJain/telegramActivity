@@ -21,7 +21,7 @@ define([
     connection.on('requestedTokens', onGetTokens);
     connection.on('requestedEndpoints', onGetEndpoints);
 
-    connection.on('clickedNext', save);
+    connection.on('clickedNext', onClickedNext);
     connection.on('clickedBack', onClickedBack);
     connection.on('gotoStep', onGotoStep);
 
@@ -123,6 +123,7 @@ define([
     }
 
     function showStep(step, stepIndex) {
+        console.log('in the showstep function ');
         if (stepIndex && !step) {
             step = steps[stepIndex-1];
         }
