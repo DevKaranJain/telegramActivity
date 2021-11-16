@@ -10,7 +10,7 @@ define([
     var lastStepEnabled = false;
     var steps = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "Create SMS Message", "key": "step1" },
-    //    { "label": "Choose Chat id destination ", "key": "step2" },
+        { "label": "Choose Chat id destination ", "key": "step2" },
     //    { "label": "Summary ", "key": "step3" }
     ];
     var currentStep = steps[0].key;
@@ -54,12 +54,10 @@ define([
 
                 if (key === 'accountSid') {
                     $('#accountSID').val(val);
-                    console.log('in the accountsid if ');
                 }
-
                 if (key === 'authToken') {
                     $('#authToken').val(val);
-                    console.log('in the auth token  ');
+                   
                 }
 
                 // if (key === 'messagingService') {
@@ -68,7 +66,7 @@ define([
 
                 if (key === 'body') {
                     $('#messageBody').val(val);
-                    console.log('in the message body ');
+                   
                 }                                                               
 
             })
