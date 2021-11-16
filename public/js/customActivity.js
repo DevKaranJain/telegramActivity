@@ -1,8 +1,10 @@
 define([
+    
     'postmonger'
 ], function(
     Postmonger
 ) {
+    console.log('in the custom activity in ----------------------------------------');
     'use strict';
     console.log("in the custom activity ");
     var connection = new Postmonger.Session();
