@@ -1,10 +1,8 @@
 define([
-    
     'postmonger'
 ], function(
     Postmonger
 ) {
-    console.log('in the custom activity in ----------------------------------------');
     'use strict';
     console.log("in the custom activity ");
     var connection = new Postmonger.Session();
@@ -12,8 +10,8 @@ define([
     var lastStepEnabled = false;
     var steps = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "Create SMS Message", "key": "step1" },
-        { "label": "Choose Chat id destination ", "key": "step2" },
-        { "label": "Summary ", "key": "step3" }
+    //    { "label": "Choose Chat id destination ", "key": "step2" },
+    //    { "label": "Summary ", "key": "step3" }
     ];
     var currentStep = steps[0].key;
 
@@ -23,9 +21,9 @@ define([
     connection.on('requestedTokens', onGetTokens);
     connection.on('requestedEndpoints', onGetEndpoints);
 
-    connection.on('clickedNext', onClickedNext);
-    connection.on('clickedBack', onClickedBack);
-    connection.on('gotoStep', onGotoStep);
+    connection.on('clickedNext', save);
+  //  connection.on('clickedBack', onClickedBack);
+  //  connection.on('gotoStep', onGotoStep);
 
     function onRender() {
         // JB will respond the first time 'ready' is called with 'initActivity'
@@ -78,7 +76,7 @@ define([
         console.log('hello');
         connection.trigger('updateButton', {
             button: 'next',
-            text: 'next',
+            text: 'done',
             visible: true
         });
 
@@ -95,7 +93,7 @@ define([
         console.log("Get End Points function: "+JSON.stringify(endpoints));
     }
     
-            function onClickedNext(){
+       /*     function onClickedNext(){
         if((currentStep.key)=='step1')
         {
             console.log('in the step 1 if ');
@@ -113,7 +111,7 @@ define([
         }
     }
 
-  
+  */
     function onClickedBack (){
         connection.trigger('prevStep');
 
@@ -125,7 +123,7 @@ define([
 
     }
 
-   function showStep(step, stepIndex) {
+  /* function showStep(step, stepIndex) {
         console.log('in the showstep function ');
         if (stepIndex && !step) {
             step = steps[stepIndex-1];
@@ -151,7 +149,7 @@ define([
                   /*  connection.trigger('updateButton', {
                         button: 'back',
                         visible: true
-                    });*/
+                    });
                         connection.trigger('updateButton', {
                         button: 'next',
                         text: 'next',
@@ -171,7 +169,7 @@ define([
                     visible: true
                 });
                 break;
-            }
+            }*/
             function save() {
 
                 var accountSid = $('#accountSid').val();
