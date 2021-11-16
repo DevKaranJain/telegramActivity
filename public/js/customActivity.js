@@ -122,7 +122,7 @@ define([
 
     }
 
-    function showStep(step, stepIndex) {
+ /*   function showStep(step, stepIndex) {
         console.log('in the showstep function ');
         if (stepIndex && !step) {
             step = steps[stepIndex-1];
@@ -148,8 +148,8 @@ define([
                   /*  connection.trigger('updateButton', {
                         button: 'back',
                         visible: true
-                    });*/
-                   connection.trigger('updateButton', {
+                    });
+                        connection.trigger('updateButton', {
                         button: 'next',
                         text: 'next',
                         visible: true
@@ -168,7 +168,7 @@ define([
                     visible: true
                 });
                 break;
-            }
+            }*/
             function save() {
 
                 var accountSid = $('#accountSid').val();
