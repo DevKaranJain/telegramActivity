@@ -76,7 +76,7 @@ define([
         console.log('hello');
         connection.trigger('updateButton', {
             button: 'next',
-            text: 'done',
+            text: 'next',
             visible: true
         });
 
@@ -105,6 +105,7 @@ define([
 
         } else if (currentStep.key == 'step3' && steps[3].active == false ){
             save();
+            connection.trigger('nextstep');
         } else {
             connection.trigger('nextstep');
         }
@@ -122,7 +123,7 @@ define([
 
     }
 
- /*   function showStep(step, stepIndex) {
+   function showStep(step, stepIndex) {
         console.log('in the showstep function ');
         if (stepIndex && !step) {
             step = steps[stepIndex-1];
@@ -148,7 +149,7 @@ define([
                   /*  connection.trigger('updateButton', {
                         button: 'back',
                         visible: true
-                    });
+                    });*/
                         connection.trigger('updateButton', {
                         button: 'next',
                         text: 'next',
@@ -168,7 +169,7 @@ define([
                     visible: true
                 });
                 break;
-            }*/
+            }
             function save() {
 
                 var accountSid = $('#accountSid').val();
