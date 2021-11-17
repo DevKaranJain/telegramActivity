@@ -177,7 +177,7 @@ define([
         //    }
             else {
                 console.log("else part me aarha h ");
-                connection.trigger('nextStep');
+               // connection.trigger('nextStep');
             }
     }
 
