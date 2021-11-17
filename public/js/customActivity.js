@@ -26,22 +26,22 @@ define([
     connection.on('gotoStep', onGotoStep);
         //============== start costomization =========
 
-        connection.on('requestedInteraction', function(settings){
-            eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
-            console.log( " eventDefinitionKey----->" + eventDefinitionKey);
-        });
-        connection.on('requestedSchema', function (data) {
-            // save schema
-            console.log('*** Schema ***', JSON.stringify(data['schema']));
-        });
+        // connection.on('requestedInteraction', function(settings){
+        //     eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
+        //     console.log( " eventDefinitionKey----->" + eventDefinitionKey);
+        // });
+        // connection.on('requestedSchema', function (data) {
+        //     // save schema
+        //     console.log('*** Schema ***', JSON.stringify(data['schema']));
+        // });
 
     function onRender() {
         // JB will respond the first time 'ready' is called with 'initActivity'
         connection.trigger('ready');
         connection.trigger('requestTokens');
         connection.trigger('requestEndpoints');
-        connection.trigger('requestInteraction');
-        connection.trigger('requestSchema');
+        // connection.trigger('requestInteraction');
+        // connection.trigger('requestSchema');
     }
 
   function initialize(data) {
@@ -108,8 +108,8 @@ define([
     
         function onClickedNext (){
             var errorSlds = '<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert"><span class="slds-assistive-text">error</span><span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed"><svg class="slds-icon slds-icon_x-small" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use></svg></span><h2>Please fill Account SID and Auth Token </h2> <div class="slds-notify__close"><button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" title="Close"><svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use></svg><span class="slds-assistive-text">Close</span></button></div></div>';
-        //    var checkboxerrorSlds = '<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert"><span class="slds-assistive-text">error</span><span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed"><svg class="slds-icon slds-icon_x-small" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use></svg></span><h2>Please select atleast one checkbox</h2> <div class="slds-notify__close"><button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" title="Close"><svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use></svg><span class="slds-assistive-text">Close</span></button></div></div>';
-                console.log(errorSlds);
+
+              console.log(errorSlds);
             if(currentStep.key == 'step1')
             {
                 
@@ -140,10 +140,10 @@ define([
 
                 
 
-                if(!WatsappCheck)
+                if(WatsappCheck == null )
                 {
-                    document.getElementById("checkboxcheck").innerHTML= errorSlds;
-                    connection.trigger('ready');
+                    document.getElementById("error").innerHTML= errorSlds;
+                    connection.trigger('prevStep');
                 }
                 // else if(recipient == "None")
                 // {
@@ -155,6 +155,7 @@ define([
                 {
                   //  document.getElementById("recipienterror").innerHTML= "";
                    // document.getElementById("checkboxcheck").innerHTML= "";
+                   document.getElementById("error").innerHTML= "";
                     connection.trigger('nextStep');
                 }
                 
@@ -192,54 +193,54 @@ define([
 
     }
 
-//    function showStep(step, stepIndex) {
-//         console.log('in the showstep function ');
-//         if (!step) {
-//             step = steps[stepIndex-1];
-//         }
+   function showStep(step, stepIndex) {
+        console.log('in the showstep function ');
+        if (!step) {
+            step = steps[stepIndex-1];
+        }
 
-//         currentStep = step;
-//         console.log('the current step -------------' , currentStep);
-//         $('.step').hide();
+        currentStep = step;
+        console.log('the current step -------------' , currentStep);
+        $('.step').hide();
         
-//         switch(currentStep.key) {
-//             case 'step1':
-//                 $('#step1').show();
-//                 console.log("---------------------------------------------------------------------------------------------------------------->This is step 1");
-//                  connection.trigger('updateButton', {
-//                   button: 'next',
-//                      text: 'next',
-//                   visible: true
-//                     //enabled: Boolean(getMessage())
-//                 });
-//                 break;
-//                 case 'step2':
-//                     $('#step2').show();
-//                     console.log("---------------------------------------------------------------------------------------------------------------->This is step 2");
-//                     // connection.trigger('updateButton', {
-//                     //     button: 'back',
-//                     //     visible: true
-//                     // });
-//                          connection.trigger('updateButton', {
-//                         button: 'next',
-//                         text: 'next',
-//                         visible: true
-//                     });
-//                     break;
-//                     case 'step3':
-//                 $('#step3').show();
-//                 console.log("---------------------------------------------------------------------------------------------------------------->This is step 3");
-//     }                   connection.trigger('updateButton', {
-//                      button: 'back',
-//                      visible: true
-//                 });
-//                 connection.trigger('updateButton', {
-//                     button: 'next',
-//                     text: 'Done',
-//                     visible: true
-//                 });
-//                 break;
-//             }
+        switch(currentStep.key) {
+            case 'step1':
+                $('#step1').show();
+                console.log("---------------------------------------------------------------------------------------------------------------->This is step 1");
+                 connection.trigger('updateButton', {
+                  button: 'next',
+                     text: 'next',
+                  visible: true
+                    //enabled: Boolean(getMessage())
+                });
+                break;
+                case 'step2':
+                    $('#step2').show();
+                    console.log("---------------------------------------------------------------------------------------------------------------->This is step 2");
+                    // connection.trigger('updateButton', {
+                    //     button: 'back',
+                    //     visible: true
+                    // });
+                         connection.trigger('updateButton', {
+                        button: 'next',
+                        text: 'next',
+                        visible: true
+                    });
+                    break;
+                    case 'step3':
+                $('#step3').show();
+                console.log("---------------------------------------------------------------------------------------------------------------->This is step 3");
+    }                   connection.trigger('updateButton', {
+                     button: 'back',
+                     visible: true
+                });
+                connection.trigger('updateButton', {
+                    button: 'next',
+                    text: 'Done',
+                    visible: true
+                });
+                break;
+            }
             function save() {
 
             //   var accountSid = $('#accountSid').val();
