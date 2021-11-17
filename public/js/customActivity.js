@@ -189,16 +189,17 @@ define([
     }                   
 
     function onGotoStep(step){
+        
         showStep(step);
         connection.trigger('ready');
 
     }
 
-   function showStep(step, stepIndex) {
+   function showStep(step) {
         console.log('in the showstep function ');
-        if (!step) {
-            step = steps[stepIndex-1];
-        }
+        // if (!step) {
+        //     step = steps[stepIndex-1];
+        // }
 
         currentStep = step;
         console.log('the current step -------------' , currentStep);
