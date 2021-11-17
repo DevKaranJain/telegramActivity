@@ -7,6 +7,7 @@ const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var http = require('https');
 console.log('http var log --------------------------',http)
 var request = require('request');
+console.log('http var log --------------------------',request)
 var express     = require('express');
 var bodyParser  = require('body-parser');
 
