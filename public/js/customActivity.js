@@ -187,12 +187,12 @@ define([
     }                   
 
     function onGotoStep(step){
-       // showStep(step);
+        showStep(step);
         connection.trigger('ready');
 
     }
 
- /*  function showStep(step, stepIndex) {
+   function showStep(step, stepIndex) {
         console.log('in the showstep function ');
         if (stepIndex && !step) {
             step = steps[stepIndex-1];
@@ -238,7 +238,7 @@ define([
                     visible: true
                 });
                 break;
-            }*/
+            }
             function save() {
 
             //   var accountSid = $('#accountSid').val();
