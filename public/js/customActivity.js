@@ -257,11 +257,8 @@ define([
                 }];       
                 payload['metaData'].isConfigured = true;
 
-                console.log("Payload on SAVE function Update--------------------------------------------------->: " + JSON.stringify(payload));
-                payload1 = JSON.stringify(payload);
-                console.log("This is payload 1 in save function-------> " + payload1);
+                console.log("Payload on SAVE function: "+JSON.stringify(payload));
                 connection.trigger('updateActivity', payload);
-        
             } 
 
 });
