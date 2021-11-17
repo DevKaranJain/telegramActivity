@@ -192,13 +192,14 @@ define([
 
     }
 
-   function showStep(step, stepIndex) {
-        console.log('in the showstep function ');
-        if (stepIndex && !step) {
-            step = steps[stepIndex-1];
-        }
+   function showStep(step) {
+        // console.log('in the showstep function ');
+        // if (!step) {
+        //     step = steps[stepIndex-1];
+        // }
 
         currentStep = step;
+        console.log('the current step -------------' , currentStep);
         $('.step').hide();
         
         switch(currentStep.key) {
