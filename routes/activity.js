@@ -113,11 +113,12 @@ exports.execute = function (req, res) {
 
     const body = requestBody.body;  
     console.log(to);
+    console.log('bot token -------------------'+authToken);
     const { sendMessageFor } = require('simple-telegram-message')
    // const {getupdatesfor } = require('simple-telegram-message')
-   // const sendMessage = sendMessageFor('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU',to)
-    
-    sendMessage(`Hi from bot! and i am hit from journey builder `)
+    const sendMessage = sendMessageFor('2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU',to)
+    sendMessage(requestBody)
+   // sendMessage(`Hi from bot! and i am hit from journey builder `)
     .then(console.log)
     .catch(console.err)
 
