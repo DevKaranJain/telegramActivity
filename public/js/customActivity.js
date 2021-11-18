@@ -255,11 +255,7 @@ define([
                     case 'step4':
                         $('#step4').show();
                         console.log("---------------------------------------------------------------------------------------------------------------->This is step 4");
-                    connection.trigger('updateButton', {
-                            button: 'next',
-                            text: 'Done',
-                            visible: true
-                        });
+                   
                     break;
                 } 
             }
