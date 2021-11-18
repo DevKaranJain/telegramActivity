@@ -69,9 +69,10 @@
        }
     },
     "wizardSteps": [
-        { "label": "Create SMS Message", "key": "step1" },
-        { "label": "Choose Chat id destination ", "key": "step2" },
-        { "label": "Summary ", "key": "step3" }   
+        { "label": "Telegram Authentication Token", "key": "step1" },
+        { "label": "Recipient", "key": "step2" },
+        { "label": "Create Message", "key": "step3" },
+        { "label": "Summary", "key": "step4" }
     ],
     "userInterfaces": {
        "configModal": {

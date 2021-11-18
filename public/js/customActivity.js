@@ -9,9 +9,10 @@ define([
     var payload = {};
     var lastStepEnabled = false;
     var steps = [ // initialize to the same value as what's set in config.json for consistency
-        { "label": "Create SMS Message", "key": "step1" },
-        { "label": "Choose Chat id destination ", "key": "step2" },
-        { "label": "Summary ", "key": "step3" }
+    { "label": "Telegram Authentication Token", "key": "step1" },
+    { "label": "Recipient", "key": "step2" },
+    { "label": "Create Message", "key": "step3" },
+    { "label": "Summary", "key": "step4" }  
     ];
     var currentStep = steps[0].key;
 
@@ -108,8 +109,9 @@ define([
     
         function onClickedNext (){
             var errorSlds = '<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert"><span class="slds-assistive-text">error</span><span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed"><svg class="slds-icon slds-icon_x-small" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use></svg></span><h2>Please fill Account SID and Auth Token </h2> <div class="slds-notify__close"><button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" title="Close"><svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use></svg><span class="slds-assistive-text">Close</span></button></div></div>';
+            var messageBodyerrorSlds = '<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert"><span class="slds-assistive-text">error</span><span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed"><svg class="slds-icon slds-icon_x-small" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use></svg></span><h2>Message body is empty.</h2></div>';
 
-              console.log(errorSlds);
+              console.log('error slds ------------------ '+errorSlds);
             if(currentStep.key == 'step1')
             {
                 
@@ -132,6 +134,7 @@ define([
                 
                // var b =;
                  var WatsappCheck = $('#messageBody').val(val);  
+                 console.log('in the step 2 ----------------------------- '+WatsappCheck);
                  console.log('message aah rha hai ?', WatsappCheck);
                 // var SmsCheck =  $("#SMS").is(":checked");
                 // var recipient = $("#recipient").val();
@@ -141,9 +144,9 @@ define([
 
                 
 
-                if(WatsappCheck == null )
+                if(WatsappCheck == "" )
                 {
-                    document.getElementById("error").innerHTML= errorSlds;
+                    document.getElementById("messageBodyNull").innerHTML = messageBodyerrorSlds;
                     connection.trigger('prevStep');
                 }
                 // else if(recipient == "None")
@@ -195,14 +198,15 @@ define([
 
     }
 
-   function showStep(step) {
+   function showStep(step , stepIndex) {
         console.log('in the showstep function ');
-        // if (!step) {
-        //     step = steps[stepIndex-1];
-        // }
+        if (stepIndex && !step) {
+            step = steps[stepIndex-1];
+        }
+
 
         currentStep = step;
-        console.log('the current step -------------' , currentStep);
+        console.log('the current step -------------'+currentStep);
         $('.step').hide();
         
         switch(currentStep.key) {
@@ -219,35 +223,45 @@ define([
                 case 'step2':
                     $('#step2').show();
                     console.log("---------------------------------------------------------------------------------------------------------------->This is step 2");
-                     connection.trigger('updateButton', {
-                         button: 'back',
-                         visible: true
-                     });
-                    //      connection.trigger('updateButton', {
+                    //  connection.trigger('updateButton', {
+                    //      button: 'back',
+                    //      visible: true
+                    //  });
+                         connection.trigger('updateButton', {
+                        button: 'next',
+                        text: 'next',
+                        visible: true
+                    });
+
+                    // connection.trigger('updateButton', {
                     //     button: 'next',
-                    //     text: 'next',
+                    //     text: 'Done',
                     //     visible: true
                     // });
-
+                    break;
+                    case 'step3':
+                $('#step3').show();
+                    console.log("---------------------------------------------------------------------------------------------------------------->This is step 3");
+                            connection.trigger('updateButton', {
+                            button: 'back',
+                            visible: true
+                    });
                     connection.trigger('updateButton', {
                         button: 'next',
                         text: 'Done',
                         visible: true
-                    });
+                        });
                     break;
-                    case 'step3':
-                $('#step3').show();
-                console.log("---------------------------------------------------------------------------------------------------------------->This is step 3");
-    }                   connection.trigger('updateButton', {
-                     button: 'back',
-                     visible: true
-                });
-                // connection.trigger('updateButton', {
-                //     button: 'next',
-                //     text: 'Done',
-                //     visible: true
-                // });
-                break;
+                    case 'step4':
+                        $('#step4').show();
+                        console.log("---------------------------------------------------------------------------------------------------------------->This is step 4");
+                    connection.trigger('updateButton', {
+                            button: 'next',
+                            text: 'Done',
+                            visible: true
+                        });
+                    break;
+                } 
             }
             function save() {
 
