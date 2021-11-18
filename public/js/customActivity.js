@@ -10,8 +10,9 @@ define([
     var lastStepEnabled = false;
     var steps = [ // initialize to the same value as what's set in config.json for consistency
     { "label": "Telegram Authentication Token", "key": "step1" },
-    { "label": "Create Message", "key": "step2" },
-    { "label": "Summary", "key": "step3" }  
+    { "label": "Recipient", "key": "step2" },
+    { "label": "Create Message", "key": "step3" },
+    { "label": "Summary", "key": "step4" }  
     ];
     var currentStep = steps[0].key;
 
@@ -26,22 +27,22 @@ define([
     connection.on('gotoStep', onGotoStep);
         //============== start costomization =========
 
-        connection.on('requestedInteraction', function(settings){
-            eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
-            console.log( " eventDefinitionKey----->" + eventDefinitionKey);
-        });
-        connection.on('requestedSchema', function (data) {
-            // save schema
-            console.log('*** Schema ***', JSON.stringify(data['schema']));
-        });
+        // connection.on('requestedInteraction', function(settings){
+        //     eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
+        //     console.log( " eventDefinitionKey----->" + eventDefinitionKey);
+        // });
+        // connection.on('requestedSchema', function (data) {
+        //     // save schema
+        //     console.log('*** Schema ***', JSON.stringify(data['schema']));
+        // });
 
     function onRender() {
         // JB will respond the first time 'ready' is called with 'initActivity'
         connection.trigger('ready');
         connection.trigger('requestTokens');
         connection.trigger('requestEndpoints');
-         connection.trigger('requestInteraction');
-         connection.trigger('requestSchema');
+        // connection.trigger('requestInteraction');
+        // connection.trigger('requestSchema');
     }
 
   function initialize(data) {
@@ -165,10 +166,10 @@ define([
                 
             }
             
-            else if (
-                (currentStep.key === 'step3' && steps[3].active === false)
-                // || currentStep.key === 'step4'
-            ) {
+           else if (
+            (currentStep.key === 'step3' && steps[3].active === false) ||
+            currentStep.key === 'step4'
+        ) {
                 save();
             }
         //    else if ((currentStep.key) === 'step1')
@@ -255,11 +256,11 @@ define([
                         visible: true
                         });
                     break;
-                    // case 'step4':
-                    //     $('#step4').show();
-                    //     console.log("---------------------------------------------------------------------------------------------------------------->This is step 4");
+                    case 'step4':
+                        $('#step4').show();
+                        console.log("---------------------------------------------------------------------------------------------------------------->This is step 4");
                    
-                    // break;
+                    break;
                 } 
             }
             function save() {
