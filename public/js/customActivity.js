@@ -129,13 +129,13 @@ define([
                     connection.trigger('nextStep');
                   }
     
-            } else if ( currentStep.key === 'step2')
+            } else if ( currentStep.key == 'step2')
             {
                 
                // var b =;
-                 var WatsappCheck = $('#messageBody').val(val);  
-                 console.log('in the step 2 ----------------------------- '+WatsappCheck);
-                 console.log('message aah rha hai ?'+WatsappCheck);
+                 var body = $('#messageBody').val(val);  
+                 console.log('in the step 2 ----------------------------- '+body);
+                // console.log('message aah rha hai ?'+WatsappCheck);
                 // var SmsCheck =  $("#SMS").is(":checked");
                 // var recipient = $("#recipient").val();
                 // console.log("Recipient ---- " + recipient);
@@ -144,7 +144,7 @@ define([
 
                 
 
-                if(WatsappCheck == "" )
+                if(body == "" )
                 {
                     document.getElementById("messageBodyNull").innerHTML = messageBodyerrorSlds;
                     connection.trigger('prevStep');
@@ -159,7 +159,7 @@ define([
                 {
                   //  document.getElementById("recipienterror").innerHTML= "";
                    // document.getElementById("checkboxcheck").innerHTML= "";
-                   document.getElementById("error").innerHTML= "";
+                   document.getElementById("messageBodyNull").innerHTML= "";
                     connection.trigger('nextStep');
                 }
                 
