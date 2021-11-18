@@ -133,7 +133,7 @@ define([
             {
                 
                // var b =;
-                 var body = $('#messageBody').val(val);  
+               var body = $('#messageBody').val(); 
                  console.log('in the step 2 ----------------------------- '+body);
                 // console.log('message aah rha hai ?'+WatsappCheck);
                 // var SmsCheck =  $("#SMS").is(":checked");
@@ -144,7 +144,7 @@ define([
 
                 
 
-                if(body == null )
+                if(body == "" )
                 {
                     document.getElementById("messageBodyNull").innerHTML = messageBodyerrorSlds;
                     console.log('body coming null '+ body);
