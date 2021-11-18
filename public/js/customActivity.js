@@ -135,7 +135,7 @@ define([
                // var b =;
                  var WatsappCheck = $('#messageBody').val(val);  
                  console.log('in the step 2 ----------------------------- '+WatsappCheck);
-                 console.log('message aah rha hai ?', WatsappCheck);
+                 console.log('message aah rha hai ?'+WatsappCheck);
                 // var SmsCheck =  $("#SMS").is(":checked");
                 // var recipient = $("#recipient").val();
                 // console.log("Recipient ---- " + recipient);
