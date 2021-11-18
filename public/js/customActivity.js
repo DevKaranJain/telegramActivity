@@ -10,9 +10,8 @@ define([
     var lastStepEnabled = false;
     var steps = [ // initialize to the same value as what's set in config.json for consistency
     { "label": "Telegram Authentication Token", "key": "step1" },
-    { "label": "Recipient", "key": "step2" },
-    { "label": "Create Message", "key": "step3" },
-    { "label": "Summary", "key": "step4" }  
+    { "label": "Create Message", "key": "step2" },
+    { "label": "Summary", "key": "step3" }  
     ];
     var currentStep = steps[0].key;
 
@@ -167,8 +166,8 @@ define([
             }
             
             else if (
-                (currentStep.key === 'step3' && steps[3].active === false) ||
-                currentStep.key === 'step4'
+                (currentStep.key === 'step3' && steps[3].active === false)
+                // || currentStep.key === 'step4'
             ) {
                 save();
             }
@@ -256,11 +255,11 @@ define([
                         visible: true
                         });
                     break;
-                    case 'step4':
-                        $('#step4').show();
-                        console.log("---------------------------------------------------------------------------------------------------------------->This is step 4");
+                    // case 'step4':
+                    //     $('#step4').show();
+                    //     console.log("---------------------------------------------------------------------------------------------------------------->This is step 4");
                    
-                    break;
+                    // break;
                 } 
             }
             function save() {
