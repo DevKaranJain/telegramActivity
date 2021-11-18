@@ -112,7 +112,7 @@ define([
             var messageBodyerrorSlds = '<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert"><span class="slds-assistive-text">error</span><span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed"><svg class="slds-icon slds-icon_x-small" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use></svg></span><h2>Message body is empty.</h2></div>';
 
               console.log('error slds ------------------ '+errorSlds);
-            if(currentStep.key == 'step1')
+            if(currentStep.key === 'step1')
             {
                 
             //  var accountSid = $('#accountSID').val();
@@ -129,7 +129,7 @@ define([
                     connection.trigger('nextStep');
                   }
     
-            } else if ( currentStep.key == 'step2')
+            } else if ( currentStep.key === 'step2')
             {
                 
                // var b =;
@@ -144,10 +144,11 @@ define([
 
                 
 
-                if(body == "" )
+                if(body == null )
                 {
                     document.getElementById("messageBodyNull").innerHTML = messageBodyerrorSlds;
-                    connection.trigger('prevStep');
+                    console.log('body coming null '+ body);
+                    connection.trigger('ready');
                 }
                 // else if(recipient == "None")
                 // {
