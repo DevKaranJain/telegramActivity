@@ -33,7 +33,7 @@ define([
         });
         connection.on('requestedSchema', function (data) {
             // save schema
-            console.log('*** Schema ***', JSON.stringify(data['schema']));
+            console.log('*** Schema ***'+ JSON.stringify(data['schema']));
         });
 
     function onRender() {
