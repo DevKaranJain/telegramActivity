@@ -107,12 +107,13 @@ exports.execute = function (req, res) {
 
 
     var requestBody = req.body.inArguments[0];
-    var uniqueEmail = req.body.keyValue;
+    //var uniqueEmail = req.body.keyValue;
     const authToken = requestBody.authToken;
     const to = requestBody.to;
 
     const body = requestBody.body;  
     console.log(to);
+
     console.log('bot token -------------------'+authToken);
     const { sendMessageFor } = require('simple-telegram-message')
     const sendMessage = sendMessageFor('2026995123:AAH9hs5SWKHYZ1Z2nuDkFR5PsQe2Fit2grws',to)
