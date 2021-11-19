@@ -7,7 +7,7 @@ define([
     console.log("in the custom activity ");
     var connection = new Postmonger.Session();
     var payload = {};
-    var lastStepEnabled = false;
+    //var lastStepEnabled = false;
     var steps = [ // initialize to the same value as what's set in config.json for consistency
     { "label": "Telegram Authentication Token", "key": "step1" },
     { "label": "Recipient", "key": "step2" },
