@@ -27,10 +27,10 @@ define([
     connection.on('gotoStep', onGotoStep);
         //============== start costomization =========
 
-        connection.on('requestedInteraction', function(settings){
-            eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
-            console.log( " eventDefinitionKey----->" + eventDefinitionKey);
-        });
+        // connection.on('requestedInteraction', function(settings){
+        //     eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
+        //     console.log( " eventDefinitionKey----->" + eventDefinitionKey);
+        // });
         connection.on('requestedSchema', function (data) {
             // save schema
             console.log('*** Schema ***', JSON.stringify(data['schema']));
