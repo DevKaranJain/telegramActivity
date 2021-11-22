@@ -70,9 +70,8 @@
     },
     "wizardSteps": [
         { "label": "Telegram Authentication Token", "key": "step1" },
-        { "label": "Recipient", "key": "step2" },
-        { "label": "Create Message", "key": "step3" },
-        { "label": "Summary", "key": "step4" }
+        { "label": "Create Message", "key": "step3" }
+        
     ],
     "userInterfaces": {
        "configModal": {

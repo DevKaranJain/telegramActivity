@@ -2,9 +2,6 @@
 var util = require('util');
 
 // Deps
-// Path = require('path');
-// JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
-// http = require('https');
 
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
@@ -127,22 +124,6 @@ exports.execute = function (req, res) {
 
 
 
-    /*const { sendMessageFor } = require('simple-telegram-message')
-    const TELEGRAM_TOKEN = '2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU' ;
-  //  const sendMessage = sendMessageFor(process.env.TELEGRAM_TOKEN, )
-  //  sendMessage(`Hi from bot!`)
-   // const baseUrl = `https://api.telegram.org/bot${token}`
-   const baseUrl = `https://api.telegram.org/bot${TELEGRAM_TOKEN}`
-    
-    message => {
-   const urlParams = querystring.stringify({
-       chat_id: '-526739583',   
-       text: 'hello i am bot hit by journey builder',
-       parse_mode: 'HTML'
-   })
-   sendRequest(`${baseUrl}/sendMessage?${urlParams}`)
-    
-   }  */
     // FOR TESTING
 
     logData(req);
