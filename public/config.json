@@ -22,15 +22,12 @@
                 }               
             ],
             "outArguments": [],
-            "url": "https://telegramcustomactivitty.herokuapp.com/journeybuilder/execute/",
+            "url": "https://telegramcustomactivitty.herokuapp.com/journeybuilder/execute",
             "verb": "POST",
             "body": "",
             "format": "json",
-            "useJwt": false,
-            "timeout": 100000,
-            "retryCount": 1,
-            "retryDelay": 10000,
-            "concurrentRequests": 5
+            "useJwt": false
+            
         }
     },
     "configurationArguments": {
@@ -40,32 +37,32 @@
             "verb": "POST",
             "body": "",
             "format": "json",
-            "useJwt": false,
-            "timeout": 3000 
+            "useJwt": false
+           
        },
        "publish": {
            "url": "https://telegramcustomactivitty.herokuapp.com/journeybuilder/publish/",
             "verb": "POST",
             "body": "",
             "format": "json",
-            "useJwt": false,
-            "timeout": 3000
+            "useJwt": false
+           
        },
        "validate": {
            "url": "https://telegramcustomactivitty.herokuapp.com/journeybuilder/validate/",
             "verb": "POST",
             "body": "",
             "format": "json",
-            "useJwt": false,
-            "timeout": 3000
+            "useJwt": false
+           
        },
        "stop": {
            "url": "https://telegramcustomactivitty.herokuapp.com/journeybuilder/stop",
             "verb": "POST",
             "body": "",
             "format": "json",
-            "useJwt": false,
-            "timeout": 3000
+            "useJwt": false
+            
        }
     },
     "wizardSteps": [
@@ -113,7 +110,7 @@
                     },
                     {
                         "body": {
-                            "dataType": "String",
+                            "dataType": "Text",
                             "isNullable": false,
                             "direction": "out"   
                         }
@@ -121,7 +118,7 @@
                     {
                         "email": {
                             "dataType": "Email",
-                            "isNullable": true,
+                            "isNullable": false,
                             "direction": "out"
                         }
                     }
