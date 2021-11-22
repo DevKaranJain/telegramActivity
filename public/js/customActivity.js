@@ -8,7 +8,8 @@ define([
     var connection = new Postmonger.Session();
     var payload = {};
     //var lastStepEnabled = false;
-    var steps = [ // initialize to the same value as what's set in config.json for consistency
+    var steps = [ 
+        // initialize to the same value as what's set in config.json for consistency
     { "label": "Telegram Authentication Token", "key": "step1" },
     { "label": "Recipient", "key": "step2" },
     { "label": "Create Message", "key": "step3" },
@@ -31,18 +32,18 @@ define([
         //     eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
         //     console.log( " eventDefinitionKey----->" + eventDefinitionKey);
         // });
-        connection.on('requestedSchema', function (data) {
-            // save schema
-            console.log('*** Schema ***', JSON.stringify(data['schema']));
-        });
+        // connection.on('requestedSchema', function (data) {
+        //     // save schema
+        //     console.log('*** Schema ***', JSON.stringify(data['schema']));
+        // });
 
     function onRender() {
         // JB will respond the first time 'ready' is called with 'initActivity'
         connection.trigger('ready');
         connection.trigger('requestTokens');
         connection.trigger('requestEndpoints');
-         connection.trigger('requestInteraction');
-         connection.trigger('requestSchema');
+        //  connection.trigger('requestInteraction');
+        //  connection.trigger('requestSchema');
     }
 
   function initialize(data) {
