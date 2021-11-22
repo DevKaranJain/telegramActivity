@@ -2,9 +2,9 @@
 var util = require('util');
 
 // Deps
-Path = require('path');
-JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
-http = require('https');
+// Path = require('path');
+// JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
+// http = require('https');
 
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
