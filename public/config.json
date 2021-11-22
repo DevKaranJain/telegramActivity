@@ -97,7 +97,7 @@
                     {
                         "from": {
                             "dataType": "Text",
-                            "isNullable": true,
+                            "isNullable": false ,
                             "direction": "out"   
                         }
                     },                    
@@ -110,7 +110,7 @@
                     },
                     {
                         "body": {
-                            "dataType": "Text",
+                            "dataType": "string",
                             "isNullable": false,
                             "direction": "out"   
                         }
