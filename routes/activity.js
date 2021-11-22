@@ -111,7 +111,7 @@ exports.execute = function (req, res) {
     console.log(to);
     
     console.log('bot token -------------------'+authToken);
-
+    try{
   
     const { sendMessageFor } = require('simple-telegram-message')
     const sendMessage = sendMessageFor('2026995123:AAH9hs5SWKHYZ1Z2nuDkFR5PsQe2Fit2grws','-526739583')
@@ -119,8 +119,11 @@ exports.execute = function (req, res) {
     .then(console.log)
     .catch(console.err)
     
-    
-
+    }
+    catch(e)
+    {
+        console.log('error is the ------------------'+e);
+    }
 
 
 
