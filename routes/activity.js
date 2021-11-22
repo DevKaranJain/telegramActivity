@@ -4,14 +4,8 @@ var util = require('util');
 // Deps
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
-var http = require('https');
+var http= require('https');
 
-//var request = require('request');
-
-// var express    = require('express');
-// var bodyParser  = require('body-parser');
-
-//const { JsonWebTokenError } = require('jsonwebtoken');
 
 
 exports.logExecuteData = [];
@@ -118,7 +112,7 @@ exports.execute = function (req, res) {
 
     const { sendMessageFor } = require('simple-telegram-message')
     const sendMessage = sendMessageFor('2026995123:AAH9hs5SWKHYZ1Z2nuDkFR5PsQe2Fit2grws','-526739583')
-   // sendMessage(requestBody)
+  
     sendMessage(`Hi from bot! and i am hit from journey builder `)
     .then(console.log)
     .catch(console.err)
