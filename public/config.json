@@ -110,7 +110,7 @@
                     },
                     {
                         "body": {
-                            "dataType": "string",
+                            "dataType": "String",
                             "isNullable": false,
                             "direction": "out"   
                         }
