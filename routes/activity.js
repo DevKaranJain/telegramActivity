@@ -1,4 +1,5 @@
 'use strict';
+
 var util = require('util');
 
 // Deps
@@ -7,7 +8,8 @@ var util = require('util');
 // http = require('https');
 
 const Path = require('path');
-const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
+//const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
+const JWT = require(Path.join(__dirname,'lib', 'jwtDecoder.js'));
 var http = require('https');
 
 exports.logExecuteData = [];

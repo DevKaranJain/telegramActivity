@@ -7,7 +7,6 @@ var errorhandler = require('errorhandler');
 var http        = require('http');
 var request     = require('request');
 var path        = require('path');
-
 var routes      = require('./routes');
 var activity    = require('./routes/activity');
 
