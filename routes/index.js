@@ -1,9 +1,9 @@
 'use strict';
 
 // Deps
-console.log("in the index file ");
-var activity = require('./activity');
 
+var activity = require('./activity');
+console.log("in the index file ");
 /*
  * GET home page.
 */

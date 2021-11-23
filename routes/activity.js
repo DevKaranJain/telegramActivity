@@ -2,13 +2,8 @@
 
 var util = require('util');
 
-// Deps
-// Path = require('path');
-// JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
-// http = require('https');
 
 const Path = require('path');
-//const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var http = require('https');
 
@@ -63,9 +58,7 @@ exports.edit = function (req, res) {
     console.log("3");	
     console.log("2");	
     console.log("1");	
-    //console.log("Edited: "+req.body.inArguments[0]);    
-    
-    // Data from the req and put it in an array accessible to the main app.
+   
     //console.log( req.body );
     console.log("coming in exports of edit");
     logData(req);
@@ -108,12 +101,11 @@ exports.execute = function (req, res) {
     //var uniqueEmail = req.body.keyValue;
     const authToken = requestBody.authToken;
     const to = requestBody.to;
-
     const body = requestBody.body;  
     console.log(to);
     
     console.log('bot token -------------------'+authToken);
-    try{
+    
   
     const { sendMessageFor } = require('simple-telegram-message')
     const sendMessage = sendMessageFor('2026995123:AAH9hs5SWKHYZ1Z2nuDkFR5PsQe2Fit2grws','-526739583')
@@ -121,13 +113,8 @@ exports.execute = function (req, res) {
     .then(console.log)
     .catch(console.err)
     
-    }
-    catch(e)
-    {
-        console.log('error is the ------------------'+e);
-    }
-
-
+  
+       
 
 
 
@@ -208,7 +195,7 @@ exports.validate = function (req, res) {
     console.log("3");	
     console.log("2");	
     console.log("1");	
-    console.log("Validated: "+req.body.inArguments);       
+    console.log("Validated: "+req.body.inArguments[0]);       
     console.log('in the validate function ');
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );

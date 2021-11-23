@@ -67,7 +67,7 @@
     },
     "wizardSteps": [
         { "label": "Telegram Authentication Token", "key": "step1" },
-        { "label": "Create Message", "key": "step3" }
+        { "label": "Create Message", "key": "step1" }
         
     ],
     "userInterfaces": {
@@ -110,7 +110,7 @@
                     },
                     {
                         "body": {
-                            "dataType": "String",
+                            "dataType": "S  tring",
                             "isNullable": false,
                             "direction": "out"   
                         }
