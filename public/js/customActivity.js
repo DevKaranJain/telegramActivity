@@ -72,7 +72,6 @@ define([
                 if (key === 'authToken') {
                     $('#authToken').val(val);
                     console.log('in the authtoken if --------------------------');
-                   
                 }
 
                 // if (key === 'messagingService') {
@@ -87,13 +86,13 @@ define([
 
             })
         });
-        console.log('======----------------------------hello');
+       
         connection.trigger('updateButton', {
             button: 'next',
             text: 'Done',
             visible: true
         });
-        console.log('======----------------------------hello');
+      
 
     }
 
