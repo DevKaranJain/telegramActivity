@@ -12,7 +12,7 @@ define([
     var steps = [ 
         // initialize to the same value as what's set in config.json for consistency
     { "label": "Telegram Authentication Token", "key": "step1" },
-    { "label": "Create Message", "key": "step3" }
+   
      
     ];
     var currentStep = steps[0].key;

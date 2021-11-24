@@ -74,8 +74,8 @@
        }
     },
     "wizardSteps": [
-        { "label": "Telegram Authentication Token", "key": "step1" },
-        { "label": "Create Message", "key": "step1" }
+        { "label": "Telegram Authentication Token", "key": "step1" }
+        
         
     ],
     "userInterfaces": {
