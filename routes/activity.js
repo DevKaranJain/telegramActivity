@@ -5,7 +5,6 @@ var util = require('util');
 
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
-//const JWT = require('../lib/jwtDecoder');
 var http = require('https');
 
 exports.logExecuteData = [];
@@ -186,6 +185,7 @@ exports.publish = function (req, res) {
     
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );
+    console.log('just before the publish method ');
      logData(req);
      res.send(200, 'Publish');
      console.log("coming to publish");
@@ -203,8 +203,7 @@ exports.validate = function (req, res) {
     console.log("1");	
     console.log("Validated: "+req.body.inArguments);       
     console.log('in the validate function ');
-    // Data from the req and put it in an array accessible to the main app.
-    //console.log( req.body );
+        //console.log( req.body );
     logData(req);
     res.send(200, 'Validate');
     

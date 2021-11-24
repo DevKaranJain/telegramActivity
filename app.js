@@ -12,7 +12,7 @@ var activity    = require('./routes/activity');
 
 
 var app = express();
-
+console.log('the request is the ------- '+ request);
 // Configure Express
 app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.json({type: 'application/json'})); 
