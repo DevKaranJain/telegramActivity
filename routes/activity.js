@@ -28,6 +28,7 @@ function logData(req) {
         protocol: req.protocol,
         secure: req.secure,
         originalUrl: req.originalUrl
+        
     });
     console.log("body: " + util.inspect(req.body));
     console.log("headers: " + req.headers);
