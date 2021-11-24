@@ -4,7 +4,8 @@ var util = require('util');
 
 
 const Path = require('path');
-const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
+//const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
+const JWT = require('../lib/jwtDecoder');
 var http = require('https');
 
 exports.logExecuteData = [];
