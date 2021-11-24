@@ -33,8 +33,7 @@ function logData(req) {
         protocol: req.protocol,
         secure: req.secure,
         originalUrl: req.originalUrl,
-        JWT:JWT,
-        http:http
+       
         
     });
     console.log("body: " + util.inspect(req.body));
