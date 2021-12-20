@@ -113,47 +113,11 @@ exports.execute = function (req, res) {
 //    const from = requestBody.messagingService;
     const body = requestBody.body;  
 
-
     const { sendMessageFor } = require('simple-telegram-message')
     const TELEGRAM_TOKEN = '2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU' ;
     const sendMessage = sendMessageFor(process.env.TELEGRAM_TOKEN, to)
     sendMessage(`Hi from bot!`)
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     //     .then(message => { 
     //         console.log(message)});
     // FOR TESTING
